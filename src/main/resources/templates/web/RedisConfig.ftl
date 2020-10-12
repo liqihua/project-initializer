@@ -1,0 +1,41 @@
+package ${packageName}.web.config.redis;
+
+import org.redisson.Redisson;
+import org.redisson.api.RedissonClient;
+import org.redisson.client.codec.StringCodec;
+import org.redisson.config.Config;
+import org.redisson.config.SingleServerConfig;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+/**
+ * redis配置类
+ * @author lqh
+ * @date 2019/4/16
+ */
+@Configuration
+public class RedisConfig {
+    @Value("${"$"}{spring.redis.database}")
+    private Integer database;
+    @Value("${"$"}{spring.redis.host}")
+    private String address;
+    @Value("${"$"}{spring.redis.port}")
+    private Integer port;
+    @Value("${"$"}{spring.redis.password}")
+    private String password;
+
+
+    @Bean
+    public RedissonClient redissonClient(){
+        Config config = new Config();
+        config.setCodec(new StringCodec());
+        SingleServerConfig server =  config.useSingleServer();
+        server.setDatabase(database);
+        server.setAddress("redis://"+address+":"+port);
+        server.setPassword(password);
+        return Redisson.create(config);
+    }
+
+
+}
