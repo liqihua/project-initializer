@@ -130,6 +130,8 @@ class ProjectInitializer {
 
         makeFile("/web/resources/api.html.ftl", webResourcePath + File.separator + "static" + File.separator + "swagger","api.html");
 
+        makeFile("/.gitignore.ftl", projectDir,".gitignore");
+
         /**
          * 复制swagger库
          */
