@@ -33,8 +33,8 @@ class ProjectInitializer {
     @Test
     public void makeProject() {
         String root = "F://code//";
-        String projectName = "my-test-goods";
-        String packageName = "com.wehotel.my.test.goods";
+        String projectName = "";
+        String packageName = "";
         String packagePath = packageName.replace(".",File.separator);
         String codePath = File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator + packagePath + File.separator;
 
@@ -121,6 +121,8 @@ class ProjectInitializer {
         makeFile("/web/TestController.ftl",webCodePath + File.separator + "controller","TestController.java");
         makeFile("/web/TestDTO.ftl",webCodePath + File.separator + "controller","TestDTO.java");
         makeFile("/web/TestVO.ftl",webCodePath + File.separator + "controller","TestVO.java");
+
+        makeFile("/web/Application.ftl",webCodePath,"Application.java");
 
         makeFile("/web/resources/apollo-env.properties.ftl", webResourcePath,"apollo-env.properties");
         makeFile("/web/resources/application.yml.ftl", webResourcePath,"application.yml");
