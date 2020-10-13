@@ -29,7 +29,6 @@ public class RedisConfig {
     @Bean
     public RedissonClient redissonClient(){
         Config config = new Config();
-        config.setCodec(new StringCodec());
         SingleServerConfig server =  config.useSingleServer();
         server.setDatabase(database);
         server.setAddress("redis://"+address+":"+port);

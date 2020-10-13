@@ -17,6 +17,6 @@ public interface RedisConstant {
     /**
     * 项目前缀
     */
-    String PROJECT_PREFFIX = "${projectName ? capitalize}:";
+    String PROJECT_PREFFIX = "${projectName ? upper_case}:";
 
 }

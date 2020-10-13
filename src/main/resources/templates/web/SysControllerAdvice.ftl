@@ -44,7 +44,7 @@ public class SysControllerAdvice extends BaseController {
         StringWriter sw = new StringWriter();
         ex.printStackTrace(new PrintWriter(sw,true));
         LOG.error(ex.getClass().getName() + " " + sw.toString(), this.getClass());
-        mailUtil.sendErrorAsync("商品服务发生异常",this.getClass().getCanonicalName() + "\n" + sw.toString());
+        mailUtil.sendErrorAsync("${projectName}服务发生异常",this.getClass().getCanonicalName() + "\n" + sw.toString());
         return buildFailedInfo("服务器发生异常："+ex.getMessage());
     }
 
