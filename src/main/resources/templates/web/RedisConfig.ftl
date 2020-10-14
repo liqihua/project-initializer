@@ -2,7 +2,7 @@ package ${packageName}.web.config.redis;
 
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;
-import org.redisson.client.codec.StringCodec;
+import org.redisson.client.codec.FstCodec;
 import org.redisson.config.Config;
 import org.redisson.config.SingleServerConfig;
 import org.springframework.beans.factory.annotation.Value;
@@ -29,6 +29,7 @@ public class RedisConfig {
     @Bean
     public RedissonClient redissonClient(){
         Config config = new Config();
+        config.setCodec(new FstCodec());
         SingleServerConfig server =  config.useSingleServer();
         server.setDatabase(database);
         server.setAddress("redis://"+address+":"+port);

@@ -21,18 +21,25 @@ public class MybatisPlusCodeGenerator {
      */
     @Test
     public void make(){
-        String url = "jdbc:mysql://localhost:3306/product?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&serverTimezone=Hongkong";
+        String url = "jdbc:mysql://localhost:3306/travel-saas-manager?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&serverTimezone=Hongkong";
         String username = "root";
         String password = "1234";
-        String dir = "F://";//代码生成在哪个位置，一般是项目工作目录以外的位置，以防错误覆盖
+        String dir = "F://code//";//代码生成在哪个位置，一般是项目工作目录以外的位置，以防错误覆盖
 
 
         String author = "liqihua";//作者
-        String parent = "com.wehotel.my.test.goods";//父级路径
+        String parent = "com.wehotel.travel.saas.manager";//父级路径
         String moduleName = "";//在哪个包下生成，代码最后会生成在 parent.moduleName 下，如：com.liqihua.project
-        String tablePrefix = "t_";//表前缀，生成的java类名会去掉前缀
+        String tablePrefix = "";//表前缀，生成的java类名会去掉前缀
         String[] tables = new String[] {
-                "t_product_sku",
+                "sys_menu",
+                "sys_perm",
+                "sys_perm_menu",
+                "sys_role",
+                "sys_role_menu",
+                "sys_role_perm",
+                "sys_role_user",
+                "sys_user",
         };//生成哪个表
 
 

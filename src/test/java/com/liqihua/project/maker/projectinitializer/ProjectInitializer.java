@@ -33,8 +33,8 @@ class ProjectInitializer {
     @Test
     public void makeProject() {
         String root = "F://code//";
-        String projectName = "";
-        String packageName = "";
+        String projectName = "travel-saas-manager";
+        String packageName = "com.wehotel.travel.saas.manager";
         String packagePath = packageName.replace(".",File.separator);
         String codePath = File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator + packagePath + File.separator;
 
@@ -48,17 +48,20 @@ class ProjectInitializer {
         String commonCodePath = commonDir + codePath + "common";
         String beanCodePath = beanDir + codePath + "bean";
         String daoCodePath = daoDir + codePath + "dao";
+        String daoMapperPath = daoDir + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + "mapper";
         String serviceCodePath = serviceDir + codePath + "service";
         String webCodePath = webDir + codePath + "web";
-        String webResourcePath = webDir + File.separator + "src" + File.separator + "main" + File.separator + "resources";
+        String webResourcesPath = webDir + File.separator + "src" + File.separator + "main" + File.separator + "resources";
 
 
         new File(projectDir).mkdirs();
         new File(commonCodePath).mkdirs();
         new File(beanCodePath).mkdirs();
         new File(daoCodePath).mkdirs();
+        new File(daoMapperPath).mkdirs();
         new File(serviceCodePath).mkdirs();
         new File(webCodePath).mkdirs();
+        new File(webResourcesPath).mkdirs();
 
 
 
@@ -124,13 +127,13 @@ class ProjectInitializer {
 
         makeFile("/web/Application.ftl",webCodePath,"Application.java");
 
-        makeFile("/web/resources/apollo-env.properties.ftl", webResourcePath,"apollo-env.properties");
-        makeFile("/web/resources/application.yml.ftl", webResourcePath,"application.yml");
-        makeFile("/web/resources/bootstrap.yml.ftl", webResourcePath,"bootstrap.yml");
-        makeFile("/web/resources/log4j2.xml.ftl", webResourcePath,"log4j2.xml");
-        makeFile("/web/resources/log4j2-prod.xml.ftl", webResourcePath,"log4j2-prod.xml");
+        makeFile("/web/resources/apollo-env.properties.ftl", webResourcesPath,"apollo-env.properties");
+        makeFile("/web/resources/application.yml.ftl", webResourcesPath,"application.yml");
+        makeFile("/web/resources/bootstrap.yml.ftl", webResourcesPath,"bootstrap.yml");
+        makeFile("/web/resources/log4j2.xml.ftl", webResourcesPath,"log4j2.xml");
+        makeFile("/web/resources/log4j2-prod.xml.ftl", webResourcesPath,"log4j2-prod.xml");
 
-        makeFile("/web/resources/api.html.ftl", webResourcePath + File.separator + "static" + File.separator + "swagger","api.html");
+        makeFile("/web/resources/api.html.ftl", webResourcesPath + File.separator + "static" + File.separator + "swagger","api.html");
 
         makeFile("/.gitignore.ftl", projectDir,".gitignore");
 
@@ -138,7 +141,7 @@ class ProjectInitializer {
          * 复制swagger库
          */
         String sourcePath = new File(new File("").getAbsolutePath() + "/src/main/resources/templates/web/resources/swagger").getAbsolutePath();
-        String targetPath = new File(new File(webResourcePath).getAbsolutePath() + "/static/swagger").getAbsolutePath();
+        String targetPath = new File(new File(webResourcesPath).getAbsolutePath() + "/static/swagger").getAbsolutePath();
         try {
             copyFolder(sourcePath,  targetPath);
         } catch (Exception e) {
