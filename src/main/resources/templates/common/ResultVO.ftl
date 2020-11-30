@@ -10,10 +10,10 @@ import lombok.Data;
 public class ResultVO <T> {
 
 	@ApiModelProperty(notes = "返回码，100表示成功，非100表示失败")
-	private String resultCode;
+	private Integer code;
 
 	@ApiModelProperty(notes = "返回消息，成功为\"success\",失败为具体失败信息")
-	private String resultMsg;
+	private String message;
 
 	@ApiModelProperty(notes = "返回数据")
 	private T data;
@@ -22,19 +22,20 @@ public class ResultVO <T> {
 	}
 
 
-	public ResultVO(String resultCode) {
-		this.resultCode = resultCode;
+	public ResultVO(Integer code) {
+		this.code = code;
 	}
 
-	public ResultVO(String resultCode, String resultMsg) {
-		this.resultCode = resultCode;
-		this.resultMsg = resultMsg;
+	public ResultVO(Integer code, String message) {
+		this.code = code;
+		this.message = message;
 	}
 
-	public ResultVO(String resultCode, String resultMsg, T data) {
-		this.resultCode = resultCode;
-		this.resultMsg = resultMsg;
+	public ResultVO(Integer code, String message, T data) {
+		this.code = code;
+		this.message = message;
 		this.data = data;
 	}
 
 }
+
