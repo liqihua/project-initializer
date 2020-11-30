@@ -25,16 +25,10 @@ class ProjectInitializer {
 
 
     @Test
-    public void test1() {
-        String sourcePath = new File(new File("").getAbsolutePath() + "/src/main/resources/templates/web/resource/swagger").getAbsolutePath();
-        System.out.println(sourcePath);
-    }
-
-    @Test
     public void makeProject() {
         String root = "F://code//";
-        String projectName = "travel-saas-manager";
-        String packageName = "com.wehotel.travel.saas.manager";
+        String projectName = "travel-crs-product";
+        String packageName = "com.wehotel.travel.crs.product";
         String packagePath = packageName.replace(".",File.separator);
         String codePath = File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator + packagePath + File.separator;
 

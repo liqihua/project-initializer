@@ -131,13 +131,13 @@
         <dependency>
             <groupId>org.redisson</groupId>
             <artifactId>redisson</artifactId>
-            <version>3.13.5</version>
+            <version>3.14.0</version>
         </dependency>
         <!-- redisson序列化编码工具 -->
         <dependency>
             <groupId>de.ruedigermoeller</groupId>
             <artifactId>fst</artifactId>
-            <version>3.0.1</version>
+            <version>2.57</version>
         </dependency>
         <!-- lombok -->
         <dependency>
